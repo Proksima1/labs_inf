@@ -1,4 +1,4 @@
-proksima@proksima-dude:~/labs_inf/labs_inf$ git init
+```proksima@proksima-dude:~/labs_inf/labs_inf$ git init
 Инициализирован пустой репозиторий Git в /home/proksima/labs_inf/labs_inf/.git/
 proksima@proksima-dude:~/labs_inf/labs_inf$ git clone https://github.com/Proksima1/labs_inf.git
 Клонирование в «labs_inf»...
@@ -11,3 +11,4 @@ proksima@proksima-dude:~/labs_inf/labs_inf/labs_inf$ git checkout -b 1lab
 Переключились на новую ветку «1lab»
 proksima@proksima-dude:~/labs_inf/labs_inf/labs_inf$ touch listing.md
 proksima@proksima-dude:~/labs_inf/labs_inf/labs_inf$ touch report.md
+```
