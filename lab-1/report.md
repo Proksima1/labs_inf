@@ -17,20 +17,6 @@
 - смержить ветку в мейн
 4. **Идея, метод, алгоритм решения задачи**: Опробовать работу с системой версий git, путём использования некоторых команд: git init
 5. **Сценарий выполнения работы**: Создать репозиторий, создать ветку 1lab, создать файлы listing.md, report.md, создать коммит "first lab", смержить ветку в main
-6. **Протокол**: 
-```proksima@proksima-dude:~/labs_inf/labs_inf$ git init
-Инициализирован пустой репозиторий Git в /home/proksima/labs_inf/labs_inf/.git/
-proksima@proksima-dude:~/labs_inf/labs_inf$ git clone https://github.com/Proksima1/labs_inf.git
-Клонирование в «labs_inf»...
-remote: Enumerating objects: 3, done.
-remote: Counting objects: 100% (3/3), done.
-remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-Получение объектов: 100% (3/3), готово.
-proksima@proksima-dude:~/labs_inf/labs_inf$ cd labs_inf
-proksima@proksima-dude:~/labs_inf/labs_inf/labs_inf$ git checkout -b 1lab
-Переключились на новую ветку «1lab»
-proksima@proksima-dude:~/labs_inf/labs_inf/labs_inf$ touch listing.md
-proksima@proksima-dude:~/labs_inf/labs_inf/labs_inf$ touch report.md
-```
+6. **Протокол**: [Листинг](https://github.com/Proksima1/labs_inf/blob/main/lab-1/listing.md)
 7. **Замечания автора** -
 8. **Выводы**: Мне понравилась данная работа, потому что git очень важная часть в работе любого программиста и он всегда будет актуален. При работе над данной лабораторной работой я научился работе с bash, а также стал лучше искать информацию в различных источниках
