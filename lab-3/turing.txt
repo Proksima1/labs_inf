@@ -1,0 +1,219 @@
+00, ,<,throughFirstNum
+throughFirstNum,1,<,throughFirstNum
+throughFirstNum,0,<,throughFirstNum
+throughFirstNum, ,<,getLeft
+getLeft,1,<,getLeft
+getLeft,0,<,getLeft
+getLeft, ,>,get
+get,1, ,skipSpace1
+get,0, ,skipSpace0
+get, ,>,getSecond
+getSecond,1, ,skipSpace1Sec
+getSecond,0, ,skipSpace0Sec
+getSecond, ,>,skipNum
+
+
+# копирование для 1
+skipSpace1, ,>,back1
+back1,1,>,back1
+back1,0,>,back1
+back1, ,>,back12
+back12,1,>,back12
+back12,0,>,back12
+back12, ,>,placeNum1
+placeNum1, ,1,mvR1
+placeNum1,1,>,placeNum1
+placeNum1,0,>,placeNum1
+mvR1,1,<,skipSpaceRight1
+skipSpaceRight1, ,<,findSpace1
+skipSpaceRight1,1,<,skipSpaceRight1
+skipSpaceRight1,0,<,skipSpaceRight1
+findSpace1,1,<,findSpace1
+findSpace1,0,<,findSpace1
+findSpace1, ,<,findSpace12
+findSpace12,1,<,findSpace12
+findSpace12,0,<,findSpace12
+findSpace12, ,1,mvR
+
+# копирование для 1 во 2-м числе
+skipSpace1Sec, ,>,back1Sec
+back1Sec,1,>,back1Sec
+back1Sec,0,>,back1Sec
+back1Sec, ,>,back12Sec
+back12Sec,1,>,back12Sec
+back12Sec,0,>,back12Sec
+back12Sec, ,>,placeNum1Sec
+placeNum1Sec, ,1,mvR1Sec
+placeNum1Sec,1,>,placeNum1Sec
+placeNum1Sec,0,>,placeNum1Sec
+mvR1Sec,1,<,skipSpaceRight1Sec
+skipSpaceRight1Sec, ,<,findSpace1Sec
+skipSpaceRight1Sec,1,<,skipSpaceRight1Sec
+skipSpaceRight1Sec,0,<,skipSpaceRight1Sec
+findSpace1Sec,1,<,findSpace1Sec
+findSpace1Sec,0,<,findSpace1Sec
+findSpace1Sec, ,<,findSpace12Sec
+findSpace12Sec,1,<,findSpace12Sec
+findSpace12Sec,0,<,findSpace12Sec
+findSpace12Sec, ,1,mvRSec
+
+
+
+# копирование для 0
+skipSpace0, ,>,back0
+back0,1,>,back0
+back0,0,>,back0
+back0, ,>,back02
+back02,1,>,back02
+back02,0,>,back02
+back02, ,>,placeNum0
+placeNum0, ,0,mvR0
+placeNum0,1,>,placeNum0
+placeNum0,0,>,placeNum0
+mvR0,0,<,skipSpaceRight0
+skipSpaceRight0, ,<,findSpace0
+skipSpaceRight0,1,<,skipSpaceRight0
+skipSpaceRight0,0,<,skipSpaceRight0
+findSpace0,1,<,findSpace0
+findSpace0,0,<,findSpace0
+findSpace0, ,<,findSpace02
+findSpace02,1,<,findSpace02
+findSpace02,0,<,findSpace02
+findSpace02, ,0,mvR
+
+# копирование для 0 во 2-м числе
+skipSpace0Sec, ,>,back0Sec
+back0Sec,1,>,back0Sec
+back0Sec,0,>,back0Sec
+back0Sec, ,>,back02Sec
+back02Sec,1,>,back02Sec
+back02Sec,0,>,back02Sec
+back02Sec, ,>,placeNum0Sec
+placeNum0Sec, ,0,mvR0Sec
+placeNum0Sec,1,>,placeNum0Sec
+placeNum0Sec,0,>,placeNum0Sec
+mvR0Sec,0,<,skipSpaceRight0Sec
+skipSpaceRight0Sec, ,<,findSpace0Sec
+skipSpaceRight0Sec,1,<,skipSpaceRight0Sec
+skipSpaceRight0Sec,0,<,skipSpaceRight0Sec
+findSpace0Sec,1,<,findSpace0Sec
+findSpace0Sec,0,<,findSpace0Sec
+findSpace0Sec, ,<,findSpace02Sec
+findSpace02Sec,1,<,findSpace02Sec
+findSpace02Sec,0,<,findSpace02Sec
+findSpace02Sec, ,0,mvRSec
+
+
+mvR,1,>,get
+mvR,0,>,get
+mvRSec,1,>,getSecond
+mvRSec,0,>,getSecond
+
+
+skipNum,1,>,skipNum
+skipNum,0,>,skipNum
+skipNum, ,>,skipNum2
+skipNum2,1,>,skipNum2
+skipNum2,0,>,skipNum2
+skipNum2, ,=,start
+
+
+# БЛОК СУММИРОВАНИЯ
+start, ,<,getMinusNum
+getMinusNum,1,<,getMinusNum
+getMinusNum,0,<,getMinusNum
+getMinusNum, ,<,takeNum
+
+# блок минусования
+takeNum,1,0,mvBack
+takeNum,0,<,takeNum
+takeNum, ,>,toFinish
+mvBack,0,>,repairMinus
+repairMinus,1,>,repairMinus
+repairMinus,0,1,repairMinus
+repairMinus, ,>,goToSumNumber
+
+# блок плюсования
+goToSumNumber,1,>,goToSumNumber
+goToSumNumber,0,>,goToSumNumber
+goToSumNumber, ,<,sum
+sum,0,1,back
+sum,1,0,next
+sum, ,1,moveNumRight
+
+#Перемещение вправо
+moveNumRight,1, ,right1
+right1, ,>,rightPlaceNum1
+right0,0,>,rightPlaceNum0
+right0,1,>,rightPlaceNum0
+rightPlaceNum0,0,0,right0
+rightPlaceNum0,1,0,right1
+rightPlaceNum0, ,0,back
+rightPlaceNum1,0,1,right0
+
+next,0,<,sum
+back,1,<,back
+back,0,<,back
+back, ,<,takeNum
+
+nextDel, ,>,toFinish
+toFinish,1, ,nextDel
+toFinish,0, ,nextDel
+toFinish, ,>,toNumber
+toNumber, ,>,toNumber
+toNumber,1,=,moveNumLeft
+#toNumber,0,=,moveNumLeft
+
+
+moveNumLeft,1,>,checkNextNumFirst
+checkNextNumFirst, ,<,firstLastGetNum
+checkNextNumFirst,1,<,getNumNum
+checkNextNumFirst,0,<,getNumNum
+getNumNum,1, ,left1
+firstLastGetNum,1, ,left1Last
+left1Last, ,<,left1Last
+left1Last,1,>,make1SpaceNum1Last
+left1Last,0,>,make1SpaceNum1Last
+make1SpaceNum1Last, ,>,lastleftPlaceNum1
+
+left1, ,<,left1
+left1,1,>,make1SpaceNum1
+left1,0,>,make1SpaceNum1
+make1SpaceNum1, ,>,leftPlaceNum1
+
+leftPlaceNum1, ,1,move1Right
+move1Right,1,>,goBack
+goBack, ,>,goBack
+goBack,0,>,checkNextNum
+goBack,1,>,checkNextNum
+checkNextNum, ,<,lastGetNewNum
+checkNextNum,1,<,getNewNum
+checkNextNum,0,<,getNewNum
+
+lastGetNewNum,0, ,lastleft1Space0
+lastGetNewNum,1, ,lastleft1Space1
+
+lastleft1Space1, ,<,lastleft1Space1
+lastleft1Space1,1,>,lastleftPlaceNum1
+lastleft1Space1,0,>,lastleftPlaceNum1
+lastleft1Space0, ,<,lastleft1Space0
+lastleft1Space0,1,>,lastleftPlaceNum0
+lastleft1Space0,0,>,lastleftPlaceNum0
+
+lastleftPlaceNum0, ,0,moveFinish
+lastleftPlaceNum1, ,1,moveFinish
+moveFinish,0,>,fin
+moveFinish,1,>,fin
+
+leftPlaceNum0, ,0,move0Right
+move0Right,0,>,goBack
+
+getNewNum,0, ,left1Space0
+getNewNum,1, ,left1Space1
+left1Space1, ,<,left1Space1
+left1Space1,1,>,leftPlaceNum1
+left1Space1,0,>,leftPlaceNum1
+left1Space0, ,<,left1Space0
+left1Space0,1,>,leftPlaceNum0
+left1Space0,0,>,leftPlaceNum0
+fin, ,#,fin
