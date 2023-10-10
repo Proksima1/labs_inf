@@ -162,24 +162,43 @@ toFinish,0, ,nextDel
 toFinish, ,>,toNumber
 toNumber, ,>,toNumber
 toNumber,1,=,moveNumLeft
-#toNumber,0,=,moveNumLeft
+toNumber,0,=,delVedNul
 
 
+delVedNul,0,>,checkForDelNext
+delVedNul,1,=,moveNumLeft
+checkForDelNext, ,<,moveNumLeft
+checkForDelNext,0,<,delNow
+checkForDelNext,1,<,delNow
+delNow,0, ,mvDelLeft
+delNow,1, ,mvDelLeft
+mvDelLeft, ,>,delVedNul
 moveNumLeft,1,>,checkNextNumFirst
+moveNumLeft,0,>,checkNextNumFirst
 checkNextNumFirst, ,<,firstLastGetNum
 checkNextNumFirst,1,<,getNumNum
 checkNextNumFirst,0,<,getNumNum
 getNumNum,1, ,left1
+getNumNum,0, ,left0
 firstLastGetNum,1, ,left1Last
+firstLastGetNum,0, ,left0Last
 left1Last, ,<,left1Last
 left1Last,1,>,make1SpaceNum1Last
 left1Last,0,>,make1SpaceNum1Last
+left0Last, ,<,left0Last
+left0Last,1,>,make1SpaceNum0Last
+left0Last,0,>,make1SpaceNum0Last
 make1SpaceNum1Last, ,>,lastleftPlaceNum1
+make1SpaceNum0Last, ,>,lastleftPlaceNum0
 
 left1, ,<,left1
 left1,1,>,make1SpaceNum1
 left1,0,>,make1SpaceNum1
 make1SpaceNum1, ,>,leftPlaceNum1
+left0, ,<,left0
+left0,1,>,make1SpaceNum0
+left0,0,>,make1SpaceNum0
+make1SpaceNum0, ,>,leftPlaceNum0
 
 leftPlaceNum1, ,1,move1Right
 move1Right,1,>,goBack
@@ -189,6 +208,7 @@ goBack,1,>,checkNextNum
 checkNextNum, ,<,lastGetNewNum
 checkNextNum,1,<,getNewNum
 checkNextNum,0,<,getNewNum
+
 
 lastGetNewNum,0, ,lastleft1Space0
 lastGetNewNum,1, ,lastleft1Space1
