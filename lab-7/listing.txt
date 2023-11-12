@@ -1,0 +1,12 @@
+Step k:   i   k   j
+Step 0:   0  -3  -7
+Step 1:  12  11  21
+Step 2:  21  10  22
+Step 3:  26  12  20
+Step 4:  27  14   8
+Step 5:  20  18  10
+Step 6:  16  24   0
+Step 7:  12  30   8
+Step 8:  12  27   0
+Step 9:  13  29  36
+Collision on step(k) 10: i=15 j=13 l=0
