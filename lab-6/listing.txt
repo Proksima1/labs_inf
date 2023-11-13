@@ -1,5 +1,5 @@
 proksima@proksima-dude:~/labs_inf/labs_inf/labs_inf/lab-6$ emacs lab8.c
-proksima@proksima-dude:~/labs_inf/labs_inf/labs_inf/lab-6$ gcc -std=c99 -Wallpedantic lab8.c
+proksima@proksima-dude:~/labs_inf/labs_inf/labs_inf/lab-6$ gcc -std=c99 -Wall -pedantic lab8.c
 proksima@proksima-dude:~/labs_inf/labs_inf/labs_inf/lab-6$ ls
 a.out  lab8.c  report.md
 proksima@proksima-dude:~/labs_inf/labs_inf/labs_inf/lab-6$ ./a.out
