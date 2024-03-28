@@ -24,6 +24,10 @@ while [ -n "$1" ]; do
             exit 1
         fi
         ;;
+    ?)
+        echo "$USAGE"
+        exit 0
+        ;;
     *)
         if [[ $1 =~ $FILEPATH_REGEX ]]; then
             if [[ ! -f $1 ]]; then
@@ -43,7 +47,7 @@ done
 path="${BASH_REMATCH[1]}"
 extension="${BASH_REMATCH[2]}"
 for ((i = 0; i < $copy_count; i++)); do
-    if [[ "$start_letter" =~ ^[0-9]+$ ]]; then
+    if [[ "$start_letter" =~ $INT_REGEX ]]; then
         new_file="${path}_${start_letter}.${extension}"
         cp "$filename" "$new_file"
         ((start_letter++))

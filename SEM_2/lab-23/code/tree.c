@@ -24,65 +24,69 @@ Node *insertNode(Node *node, double value)
     {
         return createNode(value);
     }
-    else
+    if (node->value < value)
     {
-        if (node->value < value)
+        if (node->right != NULL)
         {
-            if (node->right != NULL)
-            {
-                node->right = insertNode(node->right, value);
-                return node;
-            }
-            else
-            {
-                node->right = createNode(value);
-                return node;
-            }
+            node->right = insertNode(node->right, value);
+            return node;
         }
-        if (node->value > value)
+        else
         {
-            if (node->left != NULL)
-            {
-                node->left = insertNode(node->left, value);
-                return node;
-            }
-            else
-            {
-                node->left = createNode(value);
-                return node;
-            }
-        }
-        if (node->value == value)
-        {
+            node->right = createNode(value);
             return node;
         }
     }
+    if (node->value > value)
+    {
+        if (node->left != NULL)
+        {
+            node->left = insertNode(node->left, value);
+            return node;
+        }
+        else
+        {
+            node->left = createNode(value);
+            return node;
+        }
+    }
+    if (node->value == value)
+    {
+        return node;
+    }
+    return NULL;
 }
 
 bool checkIfLinear(Node *node)
 {
     // If tree is linear, then True, else False
     node = _checkIfLinear(node);
+    if (node == NULL)
+    {
+        return NULL;
+    }
     return node->left != NULL ? false : true;
 }
 
 Node *_checkIfLinear(Node *node)
 {
+    if (node == NULL)
+    {
+        return NULL;
+    }
     if ((node->left == NULL && node->right == NULL) || (node->left != NULL && node->right != NULL))
     {
         return node;
     }
-    else
+    if (node->left != NULL && node->right == NULL)
     {
-        if (node->left != NULL && node->right == NULL)
-        {
-            return _checkIfLinear(node->left);
-        }
-        else if (node->left == NULL && node->right != NULL)
-        {
-            return _checkIfLinear(node->right);
-        }
+        return _checkIfLinear(node->left);
     }
+    else if (node->left == NULL && node->right != NULL)
+    {
+        return _checkIfLinear(node->right);
+    }
+    return NULL;
 }
 
 Node *freeNode(Node *node)
