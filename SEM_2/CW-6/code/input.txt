@@ -1,0 +1,50 @@
+proksima 123
+2
+intel Core i7
+intel Core i5
+128
+3
+6
+2
+4
+1024
+3
+444
+1
+monitor
+windows
+dude
+1
+intel core i9
+99
+4
+128
+1
+4
+2048
+2
+monitor
+mouse
+windows
+man
+2
+amd ryzen 5000
+amd ryzen 2500
+125
+4
+128
+2
+1
+2048
+3
+77777
+8
+a
+b
+c
+d
+e
+f
+g
+h
+ubuntu
