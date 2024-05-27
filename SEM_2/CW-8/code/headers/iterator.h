@@ -24,7 +24,7 @@ void print_list(Iterator *iter);
 
 ListNode *iter_get_next_node(Iterator *iter);
 
-int list_length(Iterator *iter);
+int list_length(List *l);
 
 bool check_sort(Iterator *iter);
 

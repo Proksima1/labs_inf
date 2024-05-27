@@ -5,7 +5,8 @@
 #define MAX_PROCESSORS 2
 #define MAX_DRIVES 10
 #define MAX_EXTERNAL 100
-typedef enum {
+typedef enum
+{
     INTEGRATED = 0,
     EXTERNAL,
     AGP,
@@ -14,7 +15,8 @@ typedef enum {
 
 char *getVideoType(int num);
 
-typedef enum {
+typedef enum
+{
     SCSI = 0,
     IDE,
     ATA,
@@ -23,19 +25,23 @@ typedef enum {
 
 char *getDiskType(int num);
 
-typedef struct {
+typedef struct
+{
     char type[MAX_NAME_LENGTH];
 } Processor;
-typedef struct {
+typedef struct
+{
     int capacity;
     DiskControllerType disk_controller_type;
 } HardDrive;
 
-typedef struct {
+typedef struct
+{
     char type[MAX_NAME_LENGTH];
 } ExternalDevice;
 
-typedef struct {
+typedef struct
+{
     char owner_surname[MAX_NAME_LENGTH];
     int processor_count;
     Processor *processors[MAX_PROCESSORS];

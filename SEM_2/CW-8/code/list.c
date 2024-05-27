@@ -31,6 +31,7 @@ void list_delete_next(ListNode *node)
     else
     {
         node->next = NULL;
+        free(n);
     }
     free(delete_node);
 }

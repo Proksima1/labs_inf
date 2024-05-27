@@ -14,6 +14,7 @@ int main()
         printf("Error opening file.\n");
         return 1;
     }
+
     PersonalComputer *pc = (PersonalComputer *)malloc(sizeof(PersonalComputer));
     while (pc_read_txt(pc, input_file))
     {

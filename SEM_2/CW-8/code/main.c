@@ -23,12 +23,18 @@ int main()
             list_insert(l->head, abs(data));
             break;
         case 2:
+            if (list_length(l) == 0)
+            {
+                printf("List has length 0, you can`t delete value\n");
+                break;
+            }
             printf("Enter value to delete: ");
             scanf("%ld", &data);
             it = iter_create(l);
             if (iter_get_next_node(it)->data == data)
             {
                 list_delete_next(it->node);
+                free(it);
                 break;
             }
             while (iter_next(it) != NULL)
@@ -46,18 +52,14 @@ int main()
             break;
         case 3:
             printf("List length: ");
-            it = iter_create(l);
-            printf("%d\n", list_length(it));
-            free(it);
+            printf("%d\n", list_length(l));
             break;
         case 4:
-            it = iter_create(l);
-            if (list_length(it) == 0)
+            if (list_length(l) == 0)
             {
                 printf("List has length 0, it can`t be sorted\n");
                 break;
             }
-            free(it);
             it = iter_create(l);
             printf("List is ");
             if (!check_sort(it))
